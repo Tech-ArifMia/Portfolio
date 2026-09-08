@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIF MIA · Brand Identity Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@500;700;900&family=Noto+Sans+Bengali:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9E4DA;
+    --paper-2: #DDD7C8;
+    --ink: #1B1B1F;
+    --ink-soft: #57555A;
+    --red: #C8102E;
+    --cyan: #00A6C9;
+    --magenta: #D6006D;
+    --yellow: #EFC000;
+    --line: rgba(27,27,31,0.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans Bengali','Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--red);color:var(--paper);}
+
+  .en{font-family:'Space Grotesk','Inter',sans-serif;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .bn-serif{font-family:'Noto Serif Bengali',serif;}
+
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- crop mark motif ---------- */
+  .crop{position:absolute;width:26px;height:26px;pointer-events:none;}
+  .crop::before,.crop::after{content:"";position:absolute;background:var(--ink);}
+  .crop::before{width:100%;height:1.5px;top:50%;transform:translateY(-50%);}
+  .crop::after{height:100%;width:1.5px;left:50%;transform:translateX(-50%);}
+  .crop.tl{top:18px;left:18px;}
+  .crop.tr{top:18px;right:18px;}
+  .crop.bl{bottom:18px;left:18px;}
+  .crop.br{bottom:18px;right:18px;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(233,228,218,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1120px;margin:0 auto;
+  }
+  .brandmark{display:flex;align-items:center;gap:10px;}
+  .brandmark .dot{width:9px;height:9px;border-radius:50%;background:var(--red);}
+  .brandmark span{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:0.02em;font-size:15px;}
+  nav ul{display:flex;gap:28px;list-style:none;}
+  nav ul li a{
+    font-size:13px;letter-spacing:0.03em;color:var(--ink-soft);
+    transition:color .2s;
+  }
+  nav ul li a:hover{color:var(--red);}
+  @media(max-width:720px){ nav ul{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 28px 90px;
+    max-width:1120px;margin:0 auto;
+    text-align:left;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;margin-bottom:44px;}
+  @media(max-width:860px){ .hero-grid{grid-template-columns:1fr;text-align:center;} }
+  .eyebrow{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:34px;
+  }
+  .eyebrow b{color:var(--red);font-weight:500;}
+
+  .registration{
+    position:relative;
+    display:inline-block;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,4.6vw,50px);
+    line-height:1.16;
+    letter-spacing:-0.01em;
+    margin-bottom:8px;
+  }
+  .registration .layer{
+    position:absolute;top:0;left:0;width:100%;
+    mix-blend-mode:multiply;
+    animation:converge 1.4s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .registration .layer.c{color:var(--cyan);transform:translate(-7px,-6px);animation-delay:.05s;}
+  .registration .layer.m{color:var(--magenta);transform:translate(7px,-3px);animation-delay:.15s;}
+  .registration .layer.y{color:var(--yellow);transform:translate(0,7px);animation-delay:.25s;}
+  .registration .layer.k{position:relative;color:var(--ink);mix-blend-mode:normal;animation:none;}
+  @keyframes converge{ to{ transform:translate(0,0); } }
+  @media (prefers-reduced-motion: reduce){
+    .registration .layer{animation:none !important;transform:translate(0,0) !important;}
+  }
+
+  .sub-en{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(15px,2.2vw,20px);
+    letter-spacing:0.01em;color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  .sub-en em{font-style:normal;color:var(--red);}
+
+  .hero-desc{
+    max-width:520px;margin:0 0 36px;
+    font-size:15.5px;line-height:1.85;color:var(--ink-soft);
+  }
+  @media(max-width:860px){ .hero-desc{margin:0 auto 36px;} }
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:0;}
+  .hero-cta.left{justify-content:flex-start;}
+  @media(max-width:860px){ .hero-cta.left{justify-content:center;} }
+  .btn{
+    padding:13px 26px;font-size:14px;font-weight:500;
+    border:1px solid var(--ink);border-radius:2px;
+    transition:all .2s ease;
+    font-family:'Noto Sans Bengali',sans-serif;
+  }
+  .btn.solid{background:var(--ink);color:var(--paper);}
+  .btn.solid:hover{background:var(--red);border-color:var(--red);}
+  .btn.outline:hover{background:var(--ink);color:var(--paper);}
+
+  .portrait-frame{position:relative;}
+  .portrait-frame img{
+    width:100%;display:block;border-radius:4px;
+    border:1px solid var(--ink);
+    filter:saturate(1.02);
+  }
+
+  .specbar{
+    display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  .specbar span{
+    font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.04em;
+    color:var(--ink-soft);padding:0 22px;border-right:1px solid var(--line);
+    text-transform:uppercase;
+  }
+  .specbar span:last-child{border-right:none;}
+
+  /* ---------- section shell ---------- */
+  section{position:relative;padding:100px 0;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    margin-bottom:52px;flex-wrap:wrap;gap:16px;
+    border-bottom:1px solid var(--line);padding-bottom:20px;
+  }
+  .section-head .num{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);
+    letter-spacing:0.08em;display:block;margin-bottom:10px;
+  }
+  .section-head h2{
+    font-family:'Noto Serif Bengali',serif;font-weight:700;
+    font-size:clamp(28px,4vw,40px);
+  }
+  .section-head p{
+    font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ink-soft);
+    max-width:260px;text-align:right;
+  }
+  @media(max-width:640px){ .section-head p{text-align:left;max-width:100%;} }
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- marquee ---------- */
+  .marquee-outer{
+    overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+  }
+  .marquee-track{display:flex;width:max-content;}
+  .marquee-outer:hover .marquee-track{animation-play-state:paused;}
+  .work-track{gap:22px;animation:scrollLeft 34s linear infinite;}
+  .work-track-2{gap:22px;animation:scrollLeft 28s linear infinite;}
+  .tools-track{gap:20px;animation:scrollLeft 26s linear infinite;}
+  @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none !important;}
+  }
+
+  /* ---------- work grid ---------- */
+  .work-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:3px;overflow:hidden;
+    display:block;flex:0 0 300px;width:300px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .work-card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(27,27,31,0.12);}
+  .swatch{
+    height:160px;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+    background:var(--paper-2);
+  }
+  .swatch img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(35%) contrast(1.02);
+    transition:filter .3s ease, transform .4s ease;
+  }
+  .work-card:hover .swatch img{filter:grayscale(0%);transform:scale(1.04);}
+  .swatch .ring{
+    width:52px;height:52px;border-radius:50%;
+    border:1.5px solid var(--ink);position:relative;
+  }
+  .swatch .ring::before,.swatch .ring::after{
+    content:"";position:absolute;background:var(--ink);
+  }
+  .swatch .ring::before{width:100%;height:1px;top:50%;left:0;transform:translateY(-50%);}
+  .swatch .ring::after{height:100%;width:1px;left:50%;top:0;transform:translateX(-50%);}
+  .work-card .body{padding:18px 20px 22px;}
+  .tag{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:0.05em;text-transform:uppercase;color:var(--red);margin-bottom:10px;
+  }
+  .work-card h3{font-family:'Noto Serif Bengali',serif;font-size:18px;font-weight:700;margin-bottom:8px;}
+  .work-card p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;}
+  @media(max-width:720px){ .about-grid{grid-template-columns:1fr;} }
+  .about-text p{font-size:15.5px;line-height:1.95;color:var(--ink-soft);margin-bottom:18px;}
+  .about-text p b{color:var(--ink);font-weight:600;}
+  .lang-row{display:flex;gap:32px;margin-top:26px;}
+  .lang-row div span{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em;}
+  .lang-row div b{font-family:'Space Grotesk',sans-serif;font-size:15px;}
+
+  /* ---------- expertise ---------- */
+  .expertise-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start;}
+  @media(max-width:860px){ .expertise-grid{grid-template-columns:1fr;} }
+  .expertise-list{display:flex;flex-direction:column;}
+  .expertise-item{display:flex;align-items:baseline;gap:16px;padding:16px 4px;border-bottom:1px solid var(--line);transition:padding-left .2s ease;}
+  .expertise-item:last-child{border-bottom:none;}
+  .expertise-item:hover{padding-left:10px;}
+  .expertise-item .idx{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);min-width:26px;}
+  .expertise-item .label{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;transition:color .2s ease;}
+  .expertise-item:hover .label{color:var(--red);}
+
+  /* ---------- skills (icon marquee) ---------- */
+  .tool-card{
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    padding:26px 14px;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:3px;transition:transform .25s ease, box-shadow .25s ease;
+    flex:0 0 150px;width:150px;
+  }
+  .tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(27,27,31,0.12);}
+  .tool-badge{
+    width:56px;height:56px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--paper);
+  }
+  .tool-card .tname{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;text-align:center;}
+  .tool-card .tlevel{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--red);}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;padding-left:28px;}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .tl-item{position:relative;padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-28px;top:5px;width:11px;height:11px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--red);
+  }
+  .tl-item .yr{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--red);letter-spacing:.04em;margin-bottom:6px;display:block;}
+  .tl-item h3{font-family:'Noto Serif Bengali',serif;font-size:19px;font-weight:700;margin-bottom:4px;}
+  .tl-item .org{font-family:'Space Grotesk',sans-serif;font-size:13.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .tl-item ul{padding-left:18px;}
+  .tl-item li{font-size:14px;line-height:1.8;color:var(--ink-soft);margin-bottom:4px;}
+
+  .edu-cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px;}
+  @media(max-width:720px){ .edu-cert-grid{grid-template-columns:1fr;} }
+  .mini-head{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:block;}
+  .edu-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;font-size:14px;}
+  .edu-row .t{font-weight:600;}
+  .edu-row .y{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .cert-card{border:1px solid var(--line);padding:20px;border-radius:2px;background:var(--paper-2);}
+  .cert-card h4{font-family:'Noto Serif Bengali',serif;font-size:16.5px;margin-bottom:6px;}
+  .cert-card p{font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+  /* ---------- contact / footer ---------- */
+  footer{
+    background:var(--ink);color:var(--paper);
+    padding:80px 0 34px;position:relative;
+  }
+  footer .crop::before,footer .crop::after{background:var(--paper);}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:60px;}
+  @media(max-width:760px){ .foot-grid{grid-template-columns:1fr;gap:36px;} }
+  .foot-title{font-family:'Noto Serif Bengali',serif;font-weight:900;font-size:clamp(30px,5vw,46px);margin-bottom:18px;}
+  .foot-title span{color:var(--yellow);}
+  footer .btn{border-color:var(--paper);}
+  footer .btn.solid{background:var(--paper);color:var(--ink);}
+  footer .btn.solid:hover{background:var(--yellow);border-color:var(--yellow);color:var(--ink);}
+  footer .btn.outline{color:var(--paper);}
+  footer .btn.outline:hover{background:var(--paper);color:var(--ink);}
+  .foot-col span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(233,228,218,0.55);display:block;margin-bottom:14px;}
+  .foot-col a, .foot-col p{display:block;font-size:14.5px;margin-bottom:12px;color:var(--paper);line-height:1.6;}
+  .foot-col a:hover{color:var(--yellow);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid rgba(233,228,218,0.18);padding-top:24px;flex-wrap:wrap;gap:10px;
+  }
+  .foot-bottom span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(233,228,218,0.5);letter-spacing:.04em;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brandmark"><span class="dot"></span><span class="en">ARIF MIA</span></div>
+    <nav><ul class="en">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="crop tl"></div><div class="crop tr"></div>
+  <div class="crop bl"></div><div class="crop br"></div>
+
+  <div class="hero-grid">
+    <div class="hero-content">
+      <p class="eyebrow mono">SANGRAM NGO <b>·</b> BRAND IDENTITY <b>·</b> PRINT &amp; DIGITAL DESIGN</p>
+
+      <h1 class="registration en">
+        <span class="layer c">EVERY LAYER, ALIGNED.</span>
+        <span class="layer m">EVERY LAYER, ALIGNED.</span>
+        <span class="layer y">EVERY LAYER, ALIGNED.</span>
+        <span class="layer k">EVERY LAYER, ALIGNED.</span>
+      </h1>
+
+      <p class="sub-en en">Md Arif Mia — Graphic Designer <em>&amp;</em> Brand Identity Specialist</p>
+
+      <p class="hero-desc">
+        Eight-plus years across print, publishing, and NGO communications — building brand
+        identities, bilingual documents, and packaging that hold up as well under a loupe
+        as they do on screen. <span style="font-family:'Noto Serif Bengali',serif;">বাংলা টাইপোগ্রাফিতে বিশেষজ্ঞ।</span>
+      </p>
+
+      <div class="hero-cta left">
+        <a href="#work" class="btn solid">View Work</a>
+        <a href="#contact" class="btn outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait portrait-frame">
+      <div class="crop tl"></div><div class="crop tr"></div>
+      <div class="crop bl"></div><div class="crop br"></div>
+      <img src="assets/portrait-suit.png" alt="Md Arif Mia" loading="eager">
+    </div>
+  </div>
+
+  <div class="specbar mono">
+    <span>Est. 2016</span>
+    <span>Dhaka — Barguna, BD</span>
+    <span>8+ Yrs Experience</span>
+    <span>Bangla + English</span>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="num">01 / WORK</span>
+        <h2 class="en">Our Some Work</h2>
+      </div>
+      <p>Selected projects — live, straight from Behance.</p>
+    </div>
+
+    <div class="marquee-outer">
+    <div class="work-grid marquee-track work-track">
+      <a class="work-card" href="https://www.behance.net/gallery/218532573/BorDeGuna-Logo-Design-Company-Logo" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/868149218532573.Y3JvcCwyMjUwLDE3NTksMCwyMg.jpg" alt="BorDeGuna Logo Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Identity</span>
+          <h3 class="en">BorDeGuna Logo Design</h3>
+          <p>Company logo and brand mark design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/166409335/Brochure-Design-Trifold-creative-brochure" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/9cf22e166409335.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" alt="Trifold Brochure Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h3 class="en">Trifold Brochure Design</h3>
+          <p>Creative trifold brochure layout and print design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/220277387/Dry-Fish-Packet-Design" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/dc94c9220277387.Y3JvcCwzMDE5LDIzNjIsNTksMA.jpg" alt="Dry Fish Packet Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Packaging</span>
+          <h3 class="en">Dry Fish Packet Design</h3>
+          <p>Print-ready packaging artwork for a retail food product.</p>
+        </div>
+      </a>
+      <!-- duplicate set for seamless marquee loop -->
+      <a class="work-card" href="https://www.behance.net/gallery/218532573/BorDeGuna-Logo-Design-Company-Logo" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/868149218532573.Y3JvcCwyMjUwLDE3NTksMCwyMg.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Identity</span>
+          <h3 class="en">BorDeGuna Logo Design</h3>
+          <p>Company logo and brand mark design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/166409335/Brochure-Design-Trifold-creative-brochure" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/9cf22e166409335.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h3 class="en">Trifold Brochure Design</h3>
+          <p>Creative trifold brochure layout and print design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/220277387/Dry-Fish-Packet-Design" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/dc94c9220277387.Y3JvcCwzMDE5LDIzNjIsNTksMA.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Packaging</span>
+          <h3 class="en">Dry Fish Packet Design</h3>
+          <p>Print-ready packaging artwork for a retail food product.</p>
+        </div>
+      </a>
+    </div>
+    </div>
+
+    <div class="marquee-outer" style="margin-top:22px;">
+    <div class="work-grid marquee-track work-track-2">
+      <a class="work-card" href="https://www.behance.net/gallery/218358721/Business-Card-Design" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/ebb7de218358721.Y3JvcCwxMzM0LDEwNDMsMzMsMzM.jpg" alt="Business Card Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Corporate</span>
+          <h3 class="en">Business Card Design</h3>
+          <p>Corporate stationery and business card design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/168482897/Ramadan-Calender-Design" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/b4e32d168482897.Y3JvcCwxNDAwLDEwOTUsMCw4Mw.jpg" alt="Ramadan Calendar Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Print</span>
+          <h3 class="en">Ramadan Calendar Design</h3>
+          <p>Seasonal calendar design for print distribution.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/166413747/Awareness-Poster-Design-free-download" target="_blank" rel="noopener">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/a20bca166413747.Y3JvcCwxOTUxLDE1MjYsMCwxMTU.jpg" alt="Awareness Poster Design" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Social &amp; Print</span>
+          <h3 class="en">Awareness Poster Design</h3>
+          <p>Public awareness poster, designed for print and social sharing.</p>
+        </div>
+      </a>
+      <!-- duplicate set for seamless marquee loop -->
+      <a class="work-card" href="https://www.behance.net/gallery/218358721/Business-Card-Design" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/ebb7de218358721.Y3JvcCwxMzM0LDEwNDMsMzMsMzM.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Corporate</span>
+          <h3 class="en">Business Card Design</h3>
+          <p>Corporate stationery and business card design.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/168482897/Ramadan-Calender-Design" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/b4e32d168482897.Y3JvcCwxNDAwLDEwOTUsMCw4Mw.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Print</span>
+          <h3 class="en">Ramadan Calendar Design</h3>
+          <p>Seasonal calendar design for print distribution.</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://www.behance.net/gallery/166413747/Awareness-Poster-Design-free-download" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="swatch"><img src="https://mir-s3-cdn-cf.behance.net/projects/404/a20bca166413747.Y3JvcCwxOTUxLDE1MjYsMCwxMTU.jpg" alt="" loading="lazy"></div>
+        <div class="body">
+          <span class="tag">Social &amp; Print</span>
+          <h3 class="en">Awareness Poster Design</h3>
+          <p>Public awareness poster, designed for print and social sharing.</p>
+        </div>
+      </a>
+    </div>
+    </div>
+
+    <div style="text-align:center;margin-top:44px;">
+      <a href="https://www.behance.net/arifmia88" target="_blank" rel="noopener" class="btn outline en">See Full Portfolio on Behance</a>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="num">02 / EXPERTISE</span><h2 class="en">CORE EXPERTISE</h2></div>
+      <p>Where design meets documentation, print meets pixel.</p>
+    </div>
+    <div class="expertise-grid reveal">
+      <div class="portrait-frame">
+        <div class="crop tl"></div><div class="crop tr"></div>
+        <div class="crop bl"></div><div class="crop br"></div>
+        <img src="assets/portrait-checkered.png" alt="Md Arif Mia" loading="lazy">
+      </div>
+      <div class="expertise-list">
+        <div class="expertise-item"><span class="label">Brand Identity &amp; Logo Design</span></div>
+        <div class="expertise-item"><span class="label">Report &amp; Publication Design</span></div>
+        <div class="expertise-item"><span class="label">Project Documentation &amp; Report Writing</span></div>
+        <div class="expertise-item"><span class="label">Corporate Communication Design</span></div>
+        <div class="expertise-item"><span class="label">Print &amp; Digital Media Design</span></div>
+        <div class="expertise-item"><span class="label">Bengali Typography &amp; Layout Design</span></div>
+        <div class="expertise-item"><span class="label">Packaging &amp; Label Design</span></div>
+        <div class="expertise-item"><span class="label">Infographics &amp; Data Visualization</span></div>
+        <div class="expertise-item"><span class="label">Presentation Design</span></div>
+        <div class="expertise-item"><span class="label">Print Production &amp; Prepress</span></div>
+        <div class="expertise-item"><span class="label">Creative Direction &amp; Visual Communication</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="num">03 / PROFILE</span><h2 class="en">ABOUT</h2></div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="portrait-frame">
+        <div class="crop tl"></div><div class="crop tr"></div>
+        <div class="crop bl"></div><div class="crop br"></div>
+        <img src="assets/portrait-casual.png" alt="Md Arif Mia" loading="lazy">
+      </div>
+      <div class="about-text">
+        <p>
+          I'm <b>Md Arif Mia</b>, a graphic design and documentation professional with over
+          eight years of combined experience across print, publishing, and NGO communications.
+        </p>
+        <p>
+          I built my foundation in prepress and print production at Asia Printing Press, then
+          led client-facing print collections as Senior Graphic Designer at College Gate Binding
+          &amp; Printing. Today I lead design and documentation for <b>Sangram NGO's</b> flagship
+          rural development programme, after several years managing its media and social
+          communications output.
+        </p>
+        <p style="font-family:'Noto Serif Bengali',serif;">বাংলা টাইপোগ্রাফি ও দ্বিভাষিক ডকুমেন্ট প্রোডাকশনে বিশেষ দক্ষতা।</p>
+        <div class="lang-row">
+          <div><span>Bangla</span><b>Native</b></div>
+          <div><span>English</span><b>Professional</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="num">04 / TOOLS</span><h2 class="en">SOFTWARE</h2></div>
+      <p>The toolkit behind every brand, page, and edit.</p>
+    </div>
+    <div class="marquee-outer">
+    <div class="tools-grid marquee-track tools-track">
+      <div class="tool-card">
+        <div class="tool-badge" style="background:var(--ink);">Ps</div>
+        <span class="tname en">Photoshop</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge" style="background:var(--red);">Ai</div>
+        <span class="tname en">Illustrator</span><span class="tlevel">Advanced</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge" style="background:var(--magenta);">Id</div>
+        <span class="tname en">InDesign</span><span class="tlevel">Advanced</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge" style="background:var(--cyan);">Fi</div>
+        <span class="tname en">Filmora</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge" style="background:var(--ink-soft);">Pr</div>
+        <span class="tname en">Premiere Pro</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge" style="background:linear-gradient(135deg,var(--red),var(--yellow));color:var(--ink);">AI</div>
+        <span class="tname en">AI Design Tools</span><span class="tlevel">Expert</span>
+      </div>
+      <!-- duplicate set for seamless marquee loop -->
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:var(--ink);">Ps</div>
+        <span class="tname en">Photoshop</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:var(--red);">Ai</div>
+        <span class="tname en">Illustrator</span><span class="tlevel">Advanced</span>
+      </div>
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:var(--magenta);">Id</div>
+        <span class="tname en">InDesign</span><span class="tlevel">Advanced</span>
+      </div>
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:var(--cyan);">Fi</div>
+        <span class="tname en">Filmora</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:var(--ink-soft);">Pr</div>
+        <span class="tname en">Premiere Pro</span><span class="tlevel">Expert</span>
+      </div>
+      <div class="tool-card" aria-hidden="true">
+        <div class="tool-badge" style="background:linear-gradient(135deg,var(--red),var(--yellow));color:var(--ink);">AI</div>
+        <span class="tname en">AI Design Tools</span><span class="tlevel">Expert</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="num">05 / JOURNEY</span><h2 class="en">EXPERIENCE</h2></div>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <span class="yr en">Jan 2024 — Present</span>
+        <h3 class="en">Design &amp; Documentation Officer</h3>
+        <div class="org en">Sangram NGO</div>
+        <ul>
+          <li>Design social media postcards, press releases, news cards, and official documents for Sangram and its programmes, including the RAISE project.</li>
+          <li>Produce formal Bangla policy documents and reports with accurate typography and professional layout.</li>
+          <li>Provide design support to sister-concern organisations under the Sangram umbrella.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="yr en">Jan 2019 — Dec 2023</span>
+        <h3 class="en">Media Officer</h3>
+        <div class="org en">Sangram NGO</div>
+        <ul>
+          <li>Managed day-to-day media and social communications output for the organisation.</li>
+          <li>Created promotional and event-based content aligned with organisational branding.</li>
+          <li>Coordinated documentation and reporting materials across programmes.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="yr en">Feb 2017 — Dec 2018</span>
+        <h3 class="en">Senior Graphic Designer</h3>
+        <div class="org en">College Gate Binding &amp; Printing, Dhaka</div>
+        <ul>
+          <li>Led design production for print and binding projects, overseeing layout, prepress, and print-readiness.</li>
+          <li>Worked directly with clients to develop print collateral to specification.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="yr en">Feb 2016 — Jan 2017</span>
+        <h3 class="en">Creative Executive</h3>
+        <div class="org en">Asia Printing House, Dhaka</div>
+        <ul>
+          <li>Supported creative and design production for a range of print projects.</li>
+          <li>Gained foundational experience in prepress workflow and print production.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="crop tl"></div><div class="crop tr"></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-title en">LET'S <span>TALK.</span></div>
+        <p style="max-width:380px;color:rgba(233,228,218,0.75);font-size:14.5px;line-height:1.8;margin-bottom:8px;">
+          Get in touch for new projects, brand identity, or documentation work.
+        </p>
+        <p style="max-width:380px;color:rgba(233,228,218,0.55);font-size:13px;margin-bottom:26px;font-family:'Noto Serif Bengali',serif;">
+          যোগাযোগ করতে দ্বিধা করবেন না।
+        </p>
+        <div class="hero-cta" style="justify-content:flex-start;">
+          <a href="mailto:mdarifmahmud94@gmail.com" class="btn solid">Send an Email</a>
+          <a href="https://behance.net/arifmia88" target="_blank" class="btn outline">View Behance</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <span>Contact</span>
+        <a href="tel:01829371662">01829371662</a>
+        <a href="mailto:mdarifmahmud94@gmail.com">mdarifmahmud94@gmail.com</a>
+        <p>Madbarkandi, Shokhipur,<br>Bhedarganj, Shariatpur, Bangladesh</p>
+      </div>
+      <div class="foot-col">
+        <span>Elsewhere</span>
+        <a href="https://behance.net/arifmia88" target="_blank">behance.net/arifmia88</a>
+        <p>Current: Barguna, Bangladesh</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="mono">© 2026 MD ARIF MIA</span>
+      <span class="mono">DESIGNED FOR PRINT &amp; SCREEN</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+</script>
+
+</body>
+</html>
