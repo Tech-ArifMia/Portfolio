@@ -315,162 +315,161 @@
 		  
 		  
 			<div class="container py-4 py-md-5">
-			  <div class="bg-white rounded-4 shadow p-4 p-md-5 mx-auto" style="max-width:880px;">
+  <div class="bg-white rounded-4 shadow p-4 p-md-5 mx-auto" style="max-width:880px;">
 
-				<div class="d-flex align-items-center gap-3 pb-3 mb-4 border-bottom border-success border-2">
-				  <img src="assets/logo.png" alt="H.S.S. Law College logo" style="width:46px;height:auto;">
-				  <div>
-					<div class="fw-bold fs-5">Hasem Surjo Society Law College</div>
-					<div class="text-muted small">Stadium Road, Barguna Pourashava, Barguna</div>
-				  </div>
-				</div>
+    <div class="d-flex align-items-center gap-3 pb-3 mb-4 border-bottom border-success border-2">
+      <img src="assets/logo.png" alt="H.S.S. Law College logo" style="width:46px;height:auto;">
+      <div>
+        <div class="fw-bold fs-5">Hasem Surjo Society Law Collage</div>
+        <div class="text-muted small">Stadium Road, Barguna- 8700</div>
+      </div>
+    </div>
 
-				<div class="mb-4">
-				  <h1 class="h4 fw-bold mb-1">Student ID Card Registration</h1>
-				  <p class="text-muted small mb-0">Please fill in the details below to submit your information for the student ID card.</p>
-				</div>
+    <div class="mb-4">
+      <h1 class="h4 fw-bold mb-1">Student ID Card Registration</h1>
+      <p class="text-muted small mb-0">Please fill in the details below to submit your information for the student ID card.</p>
+    </div>
 
-				<div class="alert alert-danger small d-none" id="configWarning">
-				  Setup incomplete: replace <code>GOOGLE_SCRIPT_URL</code> inside this file with your Google Apps Script Web App URL, otherwise submissions will not be saved.
-				</div>
+    <div class="alert alert-danger small d-none" id="configWarning">
+      Setup incomplete: replace <code>GOOGLE_SCRIPT_URL</code> inside this file with your Google Apps Script Web App URL, otherwise submissions will not be saved.
+    </div>
 
-				<div class="alert alert-success small d-none" id="toast" role="alert"></div>
+    <div class="alert alert-success small d-none" id="toast" role="alert"></div>
 
-				<div class="row g-4">
+    <div class="row g-4">
 
-				  <!-- LEFT: live card preview -->
-				  <div class="col-lg-4">
-					<div class="sticky-top" style="top:1rem;">
-					  <div id="printCard">
-						<div id="idCard" class="position-relative overflow-hidden rounded-4 shadow bg-white border border-dark border-2 d-flex flex-column align-items-center p-3 mx-auto">
-						  <svg class="swoosh position-absolute top-0 start-0 w-100 h-100" viewBox="0 0 220 350" preserveAspectRatio="none">
-							<path d="M0,235 C55,205 150,262 220,222 L220,350 L0,350 Z" fill="#E7E9EC"/>
-							<path d="M0,262 C65,235 145,290 220,252 L220,350 L0,350 Z" fill="#198754" opacity="0.9"/>
-						  </svg>
+      <!-- LEFT: live card preview -->
+      <div class="col-lg-4">
+        <div class="sticky-top" style="top:1rem;">
+          <div id="printCard">
+            <div id="idCard" class="position-relative overflow-hidden rounded-4 shadow bg-white border border-dark border-2 d-flex flex-column align-items-center p-3 mx-auto">
+              <div class="d-flex align-items-center gap-2 w-100 position-relative">
+                <img src="assets/logo.png" class="card-seal-img" alt="College logo">
+                <div class="flex-grow-1">
+                  <div class="fw-bold" id="cvCollege" style="font-size:12px; line-height:1.15;">H.S.S. Law College</div>
+                  <div class="text-muted text-uppercase" style="font-size:7px;">College Code: 1612</div>
+                </div>
+              </div>
 
-						  <div class="d-flex align-items-center gap-2 w-100 position-relative">
-							<img src="assets/logo.png" class="card-seal-img" alt="College logo">
-							<div class="flex-grow-1">
-							  <div class="fw-bold" id="cvCollege" style="font-size:12px; line-height:1.15;">H.S.S. Law College</div>
-							  <div class="text-muted text-uppercase" style="font-size:7px;">College Code: 1612</div>
-							</div>
-						  </div>
+              <div id="cvPhotoBox" class="card-photo-box border border-3 border-success rounded-1 overflow-hidden d-flex align-items-center justify-content-center text-muted position-relative my-2" style="font-size:8px;">Photo</div>
 
-						  <div id="cvPhotoBox" class="card-photo-box border border-3 border-success rounded-1 overflow-hidden d-flex align-items-center justify-content-center text-muted position-relative my-2" style="font-size:8px;">Photo</div>
+              <div class="fw-bold text-center position-relative" id="cvName" style="font-size:14px;">Student Name</div>
+              <div class="text-muted text-center position-relative" id="cvSession" style="font-size:10px;">Session: —</div>
 
-						  <div class="fw-bold text-center position-relative" id="cvName" style="font-size:14px;">Student Name</div>
-						  <div class="text-muted text-center position-relative" id="cvSession" style="font-size:10px;">Session: —</div>
+              <div class="w-100 position-relative mt-2 px-2" style="font-size:10px;">
+                <div class="row gx-1"><div class="col-5 fw-bold">Roll No</div><div class="col-7" id="cvRoll">: —</div></div>
+                <div class="row gx-1"><div class="col-5 fw-bold">Blood</div><div class="col-7" id="cvBlood">: —</div></div>
+                <div class="row gx-1"><div class="col-5 fw-bold">Contact</div><div class="col-7" id="cvContact">: —</div></div>
+              </div>
 
-						  <div class="w-100 position-relative mt-2 px-2" style="font-size:10px;">
-							<div class="row gx-1"><div class="col-5 fw-bold">Roll No</div><div class="col-7" id="cvRoll">: —</div></div>
-							<div class="row gx-1"><div class="col-5 fw-bold">Blood</div><div class="col-7" id="cvBlood">: —</div></div>
-							<div class="row gx-1"><div class="col-5 fw-bold">Contact</div><div class="col-7" id="cvContact">: —</div></div>
-						  </div>
+              <div class="mt-auto position-relative text-center pt-2 w-100">
+                <svg viewBox="0 0 80 24" width="66" height="18">
+                  <path d="M4,18 C10,4 14,20 20,10 C26,2 30,18 36,12 C42,6 46,16 52,10 C58,6 62,14 70,8"
+                        stroke="#1C222B" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="w-50 mx-auto border-top pt-1">
+                  <span class="text-muted" style="font-size:7.5px;">Issuing Authority</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-						  <div class="mt-auto position-relative text-center pt-2 w-100">
-							<svg viewBox="0 0 80 24" width="66" height="18">
-							  <path d="M4,18 C10,4 14,20 20,10 C26,2 30,18 36,12 C42,6 46,16 52,10 C58,6 62,14 70,8"
-									stroke="#1C222B" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-							</svg>
-							<div class="w-50 mx-auto border-top pt-1">
-							  <span class="text-muted" style="font-size:7.5px;">Issuing Authority</span>
-							</div>
-						  </div>
-						</div>
-					  </div>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick="window.print()">Print preview</button>
+          </div>
+          <p class="text-muted small text-center mt-2">Live preview — updates as you fill the form. Card size: 2.2&Prime; &times; 3.5&Prime;.</p>
+        </div>
+      </div>
 
-					  <div class="d-flex justify-content-center mt-3">
-						<button type="button" class="btn btn-outline-dark btn-sm" onclick="window.print()">Print preview</button>
-					  </div>
-					  <p class="text-muted small text-center mt-2">Live preview — updates as you fill the form. Card size: 2.2&Prime; &times; 3.5&Prime;.</p>
-					</div>
-				  </div>
+      <!-- RIGHT: form -->
+      <div class="col-lg-8">
+        <form id="idForm">
 
-				  <!-- RIGHT: form -->
-				  <div class="col-lg-8">
-					<form id="idForm">
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Institute Information</div>
+            <div class="card-body">
+              <label for="fCollege" class="form-label">College Name *</label>
+              <input type="text" id="fCollege" class="form-control" required value="H.S.S. Law College">
+            </div>
+          </div>
 
-					  <div class="card mb-3">
-						<div class="card-header bg-white text-success text-uppercase small fw-bold">Institute Information</div>
-						<div class="card-body">
-						  <label for="fCollege" class="form-label">College Name *</label>
-						  <input type="text" id="fCollege" class="form-control" required value="H.S.S. Law College">
-						</div>
-					  </div>
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Student Information</div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="fName" class="form-label">Student Name *</label>
+                  <input type="text" id="fName" class="form-control" required placeholder="Full name as it should appear on the card">
+                </div>
+                <div class="col-md-6">
+                  <label for="fSession" class="form-label">Session *</label>
+                  <input type="text" id="fSession" class="form-control" inputmode="numeric" pattern="[0-9]*" maxlength="9" required placeholder="e.g. 20252026">
+                  <div class="invalid-feedback">Digits only, e.g. 20252026.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fRoll" class="form-label">Roll *</label>
+                  <input type="text" id="fRoll" class="form-control" inputmode="numeric" pattern="[0-9]*" required>
+                  <div class="invalid-feedback">Digits only.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fBlood" class="form-label">Blood Group *</label>
+                  <select id="fBlood" class="form-select" required>
+                    <option value="" disabled selected>Select blood group</option>
+                    <option>A+</option><option>A-</option>
+                    <option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option>
+                    <option>O+</option><option>O-</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a blood group.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fContact" class="form-label">Contact Number *</label>
+                  <input type="tel" id="fContact" class="form-control" inputmode="numeric" pattern="[0-9]*" maxlength="11" required placeholder="e.g. 01XXXXXXXXX">
+                  <div class="invalid-feedback">Digits only, e.g. 01XXXXXXXXX.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-					  <div class="card mb-3">
-						<div class="card-header bg-white text-success text-uppercase small fw-bold">Student Information</div>
-						<div class="card-body">
-						  <div class="row g-3">
-							<div class="col-12">
-							  <label for="fName" class="form-label">Student Name *</label>
-							  <input type="text" id="fName" class="form-control" required placeholder="Full name as it should appear on the card">
-							</div>
-							<div class="col-md-6">
-							  <label for="fSession" class="form-label">Session *</label>
-							  <input type="text" id="fSession" class="form-control" required placeholder="e.g. 2025-2026">
-							</div>
-							<div class="col-md-6">
-							  <label for="fRoll" class="form-label">Roll *</label>
-							  <input type="text" id="fRoll" class="form-control" required>
-							</div>
-							<div class="col-md-6">
-							  <label for="fBlood" class="form-label">Blood Group <span class="text-muted fw-normal small">optional</span></label>
-							  <select id="fBlood" class="form-select">
-								<option value="">Unknown</option>
-								<option>A+</option><option>A-</option>
-								<option>B+</option><option>B-</option>
-								<option>AB+</option><option>AB-</option>
-								<option>O+</option><option>O-</option>
-							  </select>
-							</div>
-							<div class="col-md-6">
-							  <label for="fContact" class="form-label">Contact Number *</label>
-							  <input type="tel" id="fContact" class="form-control" required placeholder="e.g. 01XXXXXXXXX">
-							</div>
-						  </div>
-						</div>
-					  </div>
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Address</div>
+            <div class="card-body">
+              <label for="fAddress" class="form-label">Address *</label>
+              <textarea id="fAddress" class="form-control" required rows="3" placeholder="Village/Area, Post Office, Upazila, District"></textarea>
+            </div>
+          </div>
 
-					  <div class="card mb-3">
-						<div class="card-header bg-white text-success text-uppercase small fw-bold">Address</div>
-						<div class="card-body">
-						  <label for="fAddress" class="form-label">Address *</label>
-						  <textarea id="fAddress" class="form-control" required rows="3" placeholder="Village/Area, Post Office, Upazila, District"></textarea>
-						</div>
-					  </div>
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Photo</div>
+            <div class="card-body d-flex align-items-center gap-3">
+              <div id="photoThumb" class="img-thumbnail d-flex align-items-center justify-content-center text-muted small photo-thumb-size">No photo</div>
+              <div>
+                <label for="fPhoto" class="btn btn-outline-success btn-sm mb-1">Choose photo</label>
+                <input type="file" id="fPhoto" class="d-none" accept=".jpg,.jpeg,.png,image/jpeg,image/png" required>
+                <div class="form-text mb-0">JPG, JPEG or PNG, max 10MB</div>
+              </div>
+            </div>
+          </div>
 
-					  <div class="card mb-3">
-						<div class="card-header bg-white text-success text-uppercase small fw-bold">Photo</div>
-						<div class="card-body d-flex align-items-center gap-3">
-						  <div id="photoThumb" class="img-thumbnail d-flex align-items-center justify-content-center text-muted small photo-thumb-size">No photo</div>
-						  <div>
-							<label for="fPhoto" class="btn btn-outline-success btn-sm mb-1">Choose photo</label>
-							<input type="file" id="fPhoto" class="d-none" accept=".jpg,.jpeg,image/jpeg" required>
-							<div class="form-text mb-0">JPG only, max 10MB</div>
-						  </div>
-						</div>
-					  </div>
+          <div class="alert alert-light border small d-flex align-items-center gap-2">
+            <span>⚠️</span> Please verify all information carefully before submitting.
+          </div>
 
-					  <div class="alert alert-light border small d-flex align-items-center gap-2">
-						<span>⚠️</span> Please verify all information carefully before submitting.
-					  </div>
+          <div class="d-flex align-items-center gap-3">
+            <button type="submit" class="btn btn-success px-4 py-2 fw-semibold" id="submitBtn">Submit</button>
+            <span class="text-muted small" id="statusMsg"></span>
+          </div>
+        </form>
+      </div>
+    </div>
 
-					  <div class="d-flex align-items-center gap-3">
-						<button type="submit" class="btn btn-success px-4 py-2 fw-semibold" id="submitBtn">Submit</button>
-						<span class="text-muted small" id="statusMsg"></span>
-					  </div>
-					</form>
-				  </div>
-				</div>
+    <footer class="text-center small text-muted border-top pt-3 mt-4">
+      <div>Your information is securely stored and kept confidential.</div>
+      <div class="mt-2">Crafted by <span class="text-success fw-bold">Arif Mia</span></div>
+    </footer>
 
-				<div class="text-center small text-muted border-top pt-3 mt-4">
-				  <div>Your information is securely stored and kept confidential.</div>
-				  <div class="mt-2">Crafted by <span class="text-success fw-bold">Arif Mia</span></div>
-				</div>
-
-			  </div>
-			</div>
+  </div>
+</div>
 		  
 		  
 		  
