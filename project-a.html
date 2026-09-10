@@ -1,246 +1,77 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" data-bs-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project A — Md Arif Mia</title>
+<title>New Page — Md Arif Mia</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
 
 <style>
+  /* ===== Theme tokens — drives every Bootstrap component below ===== */
   :root{
-    --blue-600:#1567C9;
-    --blue-700:#0F52A3;
-    --blue-800:#0B3E82;
-    --charcoal:#33343A;
-    --ink:#1A1B1E;
-    --muted:#68707E;
-    --paper:#F5F7FB;
-    --paper-2:#EEF1F6;
-    --white:#FFFFFF;
-    --line:rgba(26,27,30,0.08);
-    --grad: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+    --bs-primary: #1567C9;
+    --bs-primary-rgb: 21,103,201;
+    --bs-secondary: #33343A;
+    --bs-secondary-rgb: 51,52,58;
+    --bs-body-font-family: 'Inter','Noto Sans Bengali',sans-serif;
+    --bs-body-bg: #F5F7FB;
+    --bs-body-color: #1A1B1E;
+    --bs-border-radius: .75rem;
+    --bs-border-radius-sm: .5rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.25rem;
+    --bs-border-radius-2xl: 1.75rem;
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: #0F52A3;
+    --font-display: 'Poppins', sans-serif;
   }
-  *{box-sizing:border-box;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter','Noto Sans Bengali',sans-serif;
-    overflow-x:hidden;
-  }
-  .en, .display{font-family:'Poppins',sans-serif;}
-  .bn{font-family:'Noto Sans Bengali',sans-serif;}
-  ::selection{background:var(--blue-600);color:#fff;}
-  a{text-decoration:none;}
-  .container-xl{max-width:1180px;}
-  .text-blue{color:var(--blue-600) !important;}
-  .text-muted-2{color:var(--muted) !important;}
-  .grad-text{
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  section{padding:96px 0;}
-  @media(max-width:768px){ section{padding:64px 0;} }
-  .eyebrow{
-    font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--blue-700);
-    margin-bottom:14px;display:block;
-  }
-  h2.section-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(26px,3.6vw,38px);color:var(--ink);}
-  .section-sub{color:var(--muted);font-size:15.5px;max-width:520px;}
+  h1,h2,h3,h4,.navbar-brand,.fw-display{font-family:var(--font-display);}
+  ::selection{background:var(--bs-primary);color:#fff;}
 
-  /* ---------- navbar ---------- */
-  .navbar-premium{
-    background:rgba(255,255,255,0.9);
-    backdrop-filter:blur(10px);
-    box-shadow:0 1px 0 var(--line);
-    padding:14px 0;
-    transition:padding .25s ease, box-shadow .25s ease;
+  /* ===== Small helpers Bootstrap has no utility for ===== */
+  .glass-nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);}
+  .bg-soft-primary{background:rgba(var(--bs-primary-rgb), .08);}
+  .text-gradient{
+    background:linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .navbar-premium.scrolled{padding:8px 0;box-shadow:0 8px 24px rgba(20,30,60,0.08);}
-  .brand-wrap{display:flex;align-items:center;gap:12px;}
-  .brand-wrap img{height:46px;width:auto;}
-  .brand-text{line-height:1.1;}
-  .brand-text .name{font-family:'Poppins',sans-serif;font-weight:700;font-size:21px;color:var(--ink);letter-spacing:-0.01em;}
-  .brand-text .role{font-size:11.5px;color:var(--muted);letter-spacing:0.02em;display:block;}
-  @media(max-width:576px){ .brand-text .role{display:none;} .brand-wrap img{height:38px;} .brand-text .name{font-size:17px;} }
-
-  .navbar-premium .nav-link{
-    font-weight:500;font-size:15px;color:var(--ink) !important;padding:10px 16px !important;
-    border-radius:8px;transition:color .2s, background .2s;
-  }
-  .navbar-premium .nav-link:hover{color:var(--blue-600) !important;background:var(--paper-2);}
-  .navbar-premium .dropdown-menu{border:none;box-shadow:0 16px 32px rgba(20,30,60,0.14);border-radius:12px;padding:8px;margin-top:10px;}
-  .navbar-premium .dropdown-item{border-radius:8px;padding:10px 14px;font-size:14.5px;}
-  .navbar-premium .dropdown-item:hover{background:var(--paper-2);color:var(--blue-600);}
-  .btn-grad{
-    background:var(--grad);color:#fff;border:none;font-weight:600;font-size:14.5px;
-    padding:10px 22px;border-radius:50px;transition:transform .2s ease, box-shadow .2s ease;
-    box-shadow:0 8px 18px rgba(21,103,201,0.28);
-  }
-  .btn-grad:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(21,103,201,0.36);color:#fff;}
-  .btn-outline-premium{
-    border:1.5px solid var(--ink);color:var(--ink);font-weight:600;font-size:14.5px;
-    padding:10px 22px;border-radius:50px;transition:all .2s ease;background:transparent;
-  }
-  .btn-outline-premium:hover{background:var(--ink);color:#fff;}
-
-  /* ---------- hero ---------- */
-  .hero{padding:150px 0 90px;position:relative;overflow:hidden;}
-  .hero-blob{
-    position:absolute;width:520px;height:520px;border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, rgba(21,103,201,0.16), rgba(21,103,201,0) 70%);
-    top:-120px;right:-140px;z-index:0;
-  }
-  .hero h1{
-    font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(32px,4.6vw,54px);
-    line-height:1.14;letter-spacing:-0.01em;color:var(--ink);margin-bottom:22px;
-  }
-  .hero .lead-desc{font-size:16px;color:var(--muted);max-width:500px;line-height:1.85;margin-bottom:32px;}
-  .stat-row{display:flex;gap:36px;margin-top:52px;flex-wrap:wrap;}
-  .stat-row .stat b{font-family:'Poppins',sans-serif;font-weight:700;font-size:28px;color:var(--ink);display:block;}
-  .stat-row .stat span{font-size:12.5px;color:var(--muted);letter-spacing:.02em;}
-  .hero-portrait-wrap{position:relative;z-index:1;}
-  .hero-portrait-wrap .blob-shape{
-    position:absolute;inset:-18px -18px 24px -18px;
-    background:var(--grad);border-radius:34% 66% 62% 38% / 44% 40% 60% 56%;
-    opacity:0.14;z-index:-1;
-  }
-  .hero-portrait-wrap img{
-    width:100%;border-radius:24px;box-shadow:0 30px 60px rgba(20,30,60,0.18);
-    display:block;
-  }
-  .hero-logo-watermark{
-    position:absolute;bottom:-26px;right:-16px;width:88px;opacity:0.95;
-    filter:drop-shadow(0 10px 18px rgba(20,30,60,0.2));
+  .avatar-blob{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(var(--bs-primary-rgb),.18), rgba(var(--bs-primary-rgb),0) 70%);
+    z-index:0;pointer-events:none;
   }
 
-  /* ---------- work ---------- */
+  /* ===== Marquee (Bootstrap has no auto-scroll component) ===== */
   .marquee-outer{
     overflow:hidden;width:100%;
-    -webkit-mask-image:linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
-    mask-image:linear-gradient(to right, transparent 0, black 60px, black calc(100% - 60px), transparent 100%);
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
   }
   .marquee-track{display:flex;width:max-content;}
   .marquee-outer:hover .marquee-track{animation-play-state:paused;}
-  .work-track{gap:24px;animation:scrollLeft 36s linear infinite;margin-bottom:24px;}
-  .work-track-2{gap:24px;animation:scrollLeft 30s linear infinite;}
-  .tools-track{gap:20px;animation:scrollLeft 24s linear infinite;}
+  .track-a{gap:1.5rem;animation:scrollLeft 36s linear infinite;}
+  .track-b{gap:1.5rem;animation:scrollLeft 30s linear infinite;}
+  .track-c{gap:1.25rem;animation:scrollLeft 24s linear infinite;}
   @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
   @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none !important;} }
+  .work-card-fixed{flex:0 0 300px;width:300px;}
+  .tool-card-fixed{flex:0 0 150px;width:150px;}
 
-  .work-card{
-    background:var(--white);border-radius:16px;overflow:hidden;display:block;
-    flex:0 0 300px;width:300px;box-shadow:0 6px 18px rgba(20,30,60,0.06);
-    border:1px solid var(--line);
-    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  }
-  .work-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(21,103,201,0.16);border-color:rgba(21,103,201,0.3);}
-  .work-card .thumb{height:170px;overflow:hidden;position:relative;}
-  .work-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
-  .work-card:hover .thumb img{transform:scale(1.06);}
-  .work-card .thumb .badge-tag{
-    position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.92);color:var(--blue-700);
-    font-size:11px;font-weight:600;padding:5px 12px;border-radius:50px;letter-spacing:.02em;
-  }
-  .work-card .body{padding:18px 20px 22px;}
-  .work-card h3{font-family:'Poppins',sans-serif;font-size:16.5px;font-weight:600;margin-bottom:6px;color:var(--ink);}
-  .work-card p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0;}
+  /* ===== Timeline connector (no Bootstrap equivalent) ===== */
+  .timeline-rail{position:relative;padding-left:2rem;}
+  .timeline-rail::before{content:"";position:absolute;left:.4rem;top:.35rem;bottom:.35rem;width:2px;background:rgba(var(--bs-secondary-rgb),.12);}
+  .timeline-dot{position:absolute;left:-2rem;top:.25rem;width:.9rem;height:.9rem;}
 
-  /* ---------- expertise ---------- */
-  .portrait-frame-2{position:relative;}
-  .portrait-frame-2 img{width:100%;border-radius:20px;display:block;box-shadow:0 20px 44px rgba(20,30,60,0.14);}
-  .portrait-frame-2::before{
-    content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--grad);
-    opacity:0.12;border-radius:20px;z-index:-1;
-  }
-  .expertise-item{
-    display:flex;align-items:center;gap:16px;padding:16px 6px;border-bottom:1px solid var(--line);
-    transition:padding-left .2s ease;
-  }
-  .expertise-item:last-child{border-bottom:none;}
-  .expertise-item:hover{padding-left:12px;}
-  .expertise-item .sq{width:9px;height:9px;border-radius:2px;background:var(--grad);flex:0 0 9px;}
-  .expertise-item .label{font-family:'Poppins',sans-serif;font-weight:500;font-size:15.5px;color:var(--ink);transition:color .2s ease;}
-  .expertise-item:hover .label{color:var(--blue-600);}
-
-  /* ---------- about ---------- */
-  .about-photo{position:relative;}
-  .about-photo img{width:100%;border-radius:20px;box-shadow:0 20px 44px rgba(20,30,60,0.14);display:block;}
-  .quote-strip{
-    border-left:3px solid var(--blue-600);padding:12px 20px;background:var(--paper-2);
-    border-radius:0 10px 10px 0;font-size:15px;color:var(--ink);margin:20px 0;
-  }
-  .lang-pill{
-    display:inline-flex;align-items:center;gap:8px;background:var(--paper-2);border-radius:50px;
-    padding:8px 16px;font-size:13.5px;margin-right:10px;margin-top:8px;
-  }
-  .lang-pill b{color:var(--blue-700);}
-
-  /* ---------- tools ---------- */
-  .tool-card{
-    display:flex;flex-direction:column;align-items:center;gap:12px;
-    padding:24px 12px;background:var(--white);border:1px solid var(--line);
-    border-radius:16px;box-shadow:0 6px 16px rgba(20,30,60,0.05);
-    flex:0 0 150px;width:150px;transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .tool-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(21,103,201,0.14);}
-  .tool-badge{
-    width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-    font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#fff;
-  }
-  .tool-card .tname{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;text-align:center;color:var(--ink);}
-  .tool-card .tlevel{font-size:11px;color:var(--blue-700);font-weight:600;letter-spacing:.02em;}
-
-  /* ---------- experience ---------- */
-  .timeline{position:relative;padding-left:32px;}
-  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line);}
-  .tl-item{position:relative;padding-bottom:40px;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-item::before{
-    content:"";position:absolute;left:-32px;top:4px;width:14px;height:14px;border-radius:50%;
-    background:var(--white);border:3px solid var(--blue-600);
-  }
-  .tl-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 6px 16px rgba(20,30,60,0.05);}
-  .tl-card .yr{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:var(--blue-700);letter-spacing:.02em;}
-  .tl-card h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:600;margin:6px 0 2px;color:var(--ink);}
-  .tl-card .org{font-size:13.5px;color:var(--muted);margin-bottom:12px;}
-  .tl-card ul{padding-left:18px;margin:0;}
-  .tl-card li{font-size:14px;line-height:1.75;color:var(--muted);margin-bottom:4px;}
-
-  /* ---------- footer ---------- */
-  footer{
-    background:linear-gradient(160deg, var(--charcoal), var(--ink));
-    color:#EDEFF3;padding:88px 0 30px;position:relative;overflow:hidden;
-  }
-  footer .footer-blob{
-    position:absolute;width:460px;height:460px;border-radius:50%;
-    background:radial-gradient(circle, rgba(21,103,201,0.28), rgba(21,103,201,0) 70%);
-    bottom:-180px;left:-140px;
-  }
-  footer .foot-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(30px,5vw,46px);margin-bottom:16px;}
-  footer .foot-title span{color:#4FA3F7;}
-  footer p{color:rgba(237,239,243,0.72);}
-  footer .foot-col span.head{
-    font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    color:rgba(237,239,243,0.5);display:block;margin-bottom:16px;
-  }
-  footer .foot-col a{display:block;color:#EDEFF3;font-size:14.5px;margin-bottom:12px;}
-  footer .foot-col a:hover{color:#4FA3F7;}
-  footer .foot-col .sub-label{
-    display:block;font-size:11.5px;font-weight:600;letter-spacing:.03em;
-    color:rgba(237,239,243,0.5);margin-bottom:6px;margin-top:14px;
-  }
-  footer .foot-col .sub-label:first-of-type{margin-top:0;}
-  footer .foot-bottom{border-top:1px solid rgba(237,239,243,0.14);padding-top:24px;margin-top:56px;font-size:12px;color:rgba(237,239,243,0.5);}
-  footer .foot-logo{height:34px;margin-bottom:18px;filter:brightness(0) invert(1);opacity:0.92;}
-
-  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
-  
-  
-    /* ----------------------------------------------------------------
-	Custom CSS kept to an absolute minimum — only for things Bootstrap
+  .navbar-nav .nav-link, .navbar-nav .dropdown-item{font-size:.8rem;}
+    
+	
+  /*-------------------------------------------
+  Custom CSS kept to an absolute minimum — only for things Bootstrap
      utilities cannot express: the ID card's fixed 2.2in x 3.5in print
      ratio, a few fixed-pixel image sizes, and the print-mode fix. */
   #idCard{ width:220px; aspect-ratio:2.2/3.5; }
@@ -253,61 +84,58 @@
     body *{ visibility:hidden; }
     #printCard, #printCard *{ visibility:visible; }
     #printCard{ position:absolute; top:20px; left:20px; }
-    #idCard .swoosh{ display:none; }
-	
-	/* avoid decorative background overlapping text when printed */
-	/* ----------------------------------------------------------------
-  }
+  }  
+  /*-----------------------------------------------
 </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-premium fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm py-3" id="mainNav">
   <div class="container container-xl">
-    <a class="navbar-brand brand-wrap" href="index.html">
-      <img src="assets/am-logo.png" alt="AM Logo">
-      <span class="brand-text">
-        <span class="name">Md Arif Mia</span>
-        <span class="role">Graphic Designer &amp; Brand Identity Specialist</span>
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="assets/am-logo.png" alt="AM Logo" height="44">
+      <span class="d-flex flex-column lh-sm">
+        <span class="fw-bold fs-5">Md Arif Mia</span>
+        <span class="text-secondary d-none d-sm-inline" style="font-size:.7rem;">Graphic Designer &amp; Brand Identity Specialist</span>
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link" href="index.html#work">Work</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#work">Work</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Project</a>
-          <ul class="dropdown-menu">
+          <a class="nav-link dropdown-toggle px-2" href="#" data-bs-toggle="dropdown">Project</a>
+          <ul class="dropdown-menu shadow border-0 rounded-4 p-2">
             <!-- Project B and C: paste your form links below, replacing each href="#" -->
-            <li><a class="dropdown-item" href="project-a.html">Project A</a></li>
-            <li><a class="dropdown-item" href="#" target="_blank" rel="noopener">Project B</a></li>
-            <li><a class="dropdown-item" href="#" target="_blank" rel="noopener">Project C</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="project-a.html">Project A</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project B</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project C</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="index.html#expertise">Expertise</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#experience">Experience</a></li>
-        <li class="nav-item mt-2 mt-lg-0"><a class="btn-outline-premium" href="https://behance.net/arifmia88" target="_blank" rel="noopener">Behance</a></li>
-        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn-grad" href="index.html#contact">Get in Touch</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#expertise">Expertise</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#experience">Experience</a></li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-outline-dark rounded-pill px-3" href="https://behance.net/arifmia88" target="_blank" rel="noopener">Behance</a>
+        </li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-primary bg-gradient rounded-pill px-4" href="index.html#contact">Get in Touch</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section style="padding-top:150px;">
+<!-- ============================================================ -->
+<!--  PAGE CONTENT — paste your content in place of this section   -->
+<!-- ============================================================ -->
+<section style="padding-top:9.5rem;padding-bottom:6rem;">
   <div class="container container-xl">
-    <div class="mb-2 text-center">
-      <span class="eyebrow en d-block">PROJECT/Project A - ID Card</span>
-    </div>
 
-
-
-
-
-
+    <!-- Start pasting your content below this line -->
 
 
           <!-- ================================================= -->
@@ -477,51 +305,45 @@
           <!-- ================================================= -->
 
 
-
-
-
-
-
-
+    <!-- Stop pasting your content above this line -->
 
   </div>
 </section>
 
-<footer id="contact">
-  <div class="footer-blob"></div>
+<footer id="contact" class="bg-dark bg-gradient text-light position-relative overflow-hidden py-4 py-lg-5">
+  <div class="avatar-blob" style="width:22rem;height:22rem;bottom:-9rem;left:-8rem;"></div>
   <div class="container container-xl position-relative">
-    <div class="row g-5">
+    <div class="row g-4">
       <div class="col-lg-5">
-        <img src="assets/am-logo.png" alt="AM Logo" class="foot-logo">
-        <div class="foot-title">LET'S <span>TALK.</span></div>
-        <p style="max-width:380px;font-size:14.5px;line-height:1.8;margin-bottom:6px;">
+        <img src="assets/am-logo.png" height="30" class="mb-2" style="filter:brightness(0) invert(1);opacity:.9;" alt="AM Logo">
+        <h2 class="display-6 fw-bold mb-2">LET'S <span class="text-primary">TALK.</span></h2>
+        <p class="text-light text-opacity-75 small mb-1" style="max-width:24rem;">
           Get in touch for new projects, brand identity, or documentation work.
         </p>
-        <p class="bn" style="max-width:380px;font-size:13px;color:rgba(237,239,243,0.55);margin-bottom:26px;">
+        <p class="text-light text-opacity-50 small mb-3" style="font-family:'Noto Sans Bengali',sans-serif;max-width:24rem;">
           যোগাযোগ করতে দ্বিধা করবেন না।
         </p>
-        <div class="d-flex gap-3 flex-wrap">
-          <a href="mailto:mdarifmahmud94@gmail.com" class="btn-grad">Send an Email</a>
-          <a href="https://behance.net/arifmia88" target="_blank" class="btn-outline-premium" style="border-color:rgba(237,239,243,0.5);color:#EDEFF3;">View Behance</a>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="mailto:mdarifmahmud94@gmail.com" class="btn btn-sm btn-primary bg-gradient rounded-pill px-3">Send an Email</a>
+          <a href="https://behance.net/arifmia88" target="_blank" class="btn btn-sm btn-outline-light rounded-pill px-3">View Behance</a>
         </div>
       </div>
       <div class="col-lg-3 col-6">
-        <span class="head">Contact</span>
-        <span class="sub-label">Primary Email</span>
-        <a href="mailto:mdarifmahmud94@gmail.com">mdarifmahmud94@gmail.com</a>
-        <span class="sub-label">Direct Telephone &amp; WhatsApp</span>
-        <a href="tel:+8801829371662">+880 1829-371662</a>
-        <p style="font-size:13.5px;margin-top:14px;">Mohammadpur, Dhaka-1207,<br>Current Posting: Barguna, Bangladesh</p>
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Contact</span>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Primary Email</span>
+        <a href="mailto:mdarifmahmud94@gmail.com" class="d-block small text-light mb-2 text-decoration-none">mdarifmahmud94@gmail.com</a>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Direct Telephone &amp; WhatsApp</span>
+        <a href="tel:+8801829371662" class="d-block small text-light mb-2 text-decoration-none">+880 1829-371662</a>
+        <p class="small text-light text-opacity-75 mb-0">Mohammadpur, Dhaka-1207,<br>Current Posting: Barguna, Bangladesh</p>
       </div>
       <div class="col-lg-4 col-6">
-        <span class="head">Elsewhere</span>
-        <a href="https://behance.net/arifmia88" target="_blank">behance.net/arifmia88</a>
-        <p style="font-size:13.5px;">Current: Barguna, Bangladesh</p>
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Elsewhere</span>
+        <a href="https://behance.net/arifmia88" target="_blank" class="d-block small text-light mb-2 text-decoration-none">behance.net/arifmia88</a>
       </div>
     </div>
-    <div class="foot-bottom d-flex justify-content-between flex-wrap gap-2">
-      <span>© 2026 MD ARIF MIA</span>
-      <span>DESIGNED FOR PRINT &amp; SCREEN</span>
+    <div class="d-flex justify-content-between flex-wrap gap-2 border-top border-light border-opacity-10 pt-3 mt-3">
+      <span class="small text-light text-opacity-50">© 2026 MD ARIF MIA</span>
+      <span class="small text-light text-opacity-50">DESIGNED FOR PRINT &amp; SCREEN</span>
     </div>
   </div>
 </footer>
@@ -529,7 +351,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
 
-
+// =========================== HSS Law Collge ID Card ==START===============
+  
   // Form scrtpt START  -------------------------
  const $ = (id) => document.getElementById(id);
   const MAX_PHOTO_BYTES = 10 * 1024 * 1024; // 10MB
@@ -658,14 +481,13 @@
 
   // Form scrtpt END  -------------------------
 
+// =========================== HSS Law Collge ID Card ==ENT===============
 
-  // navbar shrink on scroll
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', ()=>{
-    if(window.scrollY > 30){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    nav.classList.toggle('py-2', window.scrollY > 30);
+    nav.classList.toggle('py-3', window.scrollY <= 30);
   });
-
-  // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
